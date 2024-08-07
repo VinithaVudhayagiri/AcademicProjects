@@ -1,0 +1,102 @@
+<html>
+<head>
+    <title>Delete Record</title>
+</head>
+<style>
+    body {
+        background-image: url('/static/images/background.jpg');
+        background-size: cover;
+        color: #2d0909;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    h1 {
+        text-align: center;
+    }
+
+    table {
+        margin: auto;
+        border-collapse: collapse;
+        width: 80%;
+        background-color: rgba(72, 27, 134, 0.5);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        overflow: hidden;
+    }
+
+    th,
+    td {
+        padding: 10px;
+        text-align: left;
+        border-bottom: 1px solid #7b3030;
+    }
+
+    th {
+        background-color: #4CAF50;
+        color: rgb(203, 82, 82);
+    }
+
+    form {
+        margin: auto;
+        width: 50%;
+        text-align: center;
+    }
+
+    select {
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        margin-bottom: 20px;
+        font-size: 16px;
+        background-color: skyblue;
+        color: #333;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    select:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    }
+    
+    input[type=text] {
+        padding: 10px;
+        border-radius: 5px;
+        margin-bottom: 20px;
+        font-size: 16px;
+        background-color: skyblue;
+        color: #333;
+        border: none;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+        transition: all 0.3s ease;
+    }
+
+    input[type=text]:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    }
+</style>
+<body>
+    <h1>Delete Record from {{ table }}</h1>
+    {% if error_message %}
+        <p style="color:red;">{{ error_message }}</p>
+    {% endif %}
+    <form method="post" action="/delete_record">
+        <input type="hidden" name="table" value="{{ table }}">
+        <label for="column">Column:</label>
+        <select name="column" id="column">
+            <option value="{{ columns }}">{{ columns }}</option>
+        </select><br>
+        <label for="value">Value:</label>
+        {% if column_type == 'text' %}
+            <input type="text" name="value" id="value"><br>
+        {% else %}
+            <select name="value" id="value">
+                {% for record in records %}
+                    <option value="{{ record[0] }}">{{ record[0] }}</option>
+                {% endfor %}
+            </select><br>
+        {% endif %}
+        <input type="submit" value="Delete">
+    </form>
+</body>
+</html>

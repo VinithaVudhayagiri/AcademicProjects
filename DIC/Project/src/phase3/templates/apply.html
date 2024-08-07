@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Credit Card Application</title>
+    <style>
+        body {
+            background-image: url('/static/images/application.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #2d0909;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            text-align: center;
+        }
+        #logo {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            height: 100px; 
+            width: 100px; 
+        }
+        form {
+            display: inline-grid;
+            grid-template-columns: max-content auto;
+            gap: 10px;
+            align-items: center;
+            justify-content: center;
+        }
+
+        label {
+            text-align: right;
+            grid-column: 1;
+        }
+
+        input,
+        select {
+            grid-column: 2;
+            height: 40px;
+        }
+
+        button[type="submit"] {
+            grid-column: span 2;
+            font-size: 1.5em; 
+            height: 50px; 
+            background-color: #535556;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <img src="/static/images/logo.png" alt="Logo" id="logo">
+    <h1>Apply for a Credit Card</h1>
+    <form method="POST">
+        <label for="name">Applicant Name:</label>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <label for="gender">Gender:</label>
+        <select id="gender" name="gender" required>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+        </select><br><br>
+
+        <label for="dob">Date of Birth:</label>
+        <input type="date" id="dob" name="dob" required><br><br>
+
+        <label for="marital-status">Marital Status:</label>
+        <select id="marital-status" name="marital-status" required>
+            <option value="civil-marriage">Civil Marriage</option>
+            <option value="married">Married</option>
+            <option value="separated">Separated</option>
+            <option value="single">Single / Not Married</option>
+            <option value="widow">Widow</option>
+        </select><br><br>
+
+        <label for="family-count">Total number of people in the family:</label>
+        <select id="family-count" name="family-count" required>
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10 or more</option>
+        </select><br><br>
+
+        <label for="cnt-children">Number of Children:</label>
+        <select id="cnt-children" name="cnt-children" required>
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10 or more</option>
+        </select><br><br>
+
+        <label for="work-mobile">Do you have a work mobile?</label>
+        <select id="work-mobile" name="work-mobile">
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+        </select><br><br>
+
+        <label for="personal-mobile">Do you have a personal mobile?</label>
+        <select id="personal-mobile" name="personal-mobile">
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+        </select><br><br>
+
+        <label for="email">Do you have a personal email?</label>
+        <select id="email" name="email">
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+        </select><br><br>
+
+        <label for="housing-type">Housing Type:</label>
+        <select id="housing-type" name="housing-type" required>
+            <option value="co-op-apartment">Co-op Apartment</option>
+            <option value="house-apartment">House / Apartment</option>
+            <option value="municipal-apartment">Municipal Apartment</option>
+            <option value="office-apartment">Office Apartment</option>
+            <option value="rented-apartment">Rented Apartment</option>
+            <option value="with-parents">With Parents</option>
+        </select><br><br>
+
+        <label for="education_type">Education Type:</label>
+        <select id="education_type" name="education_type">
+            <option value="academic_degree">Academic Degree</option>
+            <option value="higher_education">Higher Education</option>
+            <option value="incomplete_higher">Incomplete Higher</option>
+            <option value="lower_secondary">Lower Secondary</option>
+            <option value="secondary_secondary_special">Secondary / Secondary Special</option>
+        </select><br><br>
+
+        <label for="occupation_type">Occupation Type:</label>
+        <select id="occupation_type" name="occupation_type">
+            <option value="accountants">Accountants</option>
+            <option value="cleaning_staff">Cleaning Staff</option>
+            <option value="cooking_staff">Cooking Staff</option>
+            <option value="core_staff">Core Staff</option>
+            <option value="drivers">Drivers</option>
+            <option value="hr_staff">HR Staff</option>
+            <option value="high_skill_tech_staff">High Skill Tech Staff</option>
+            <option value="it_staff">IT Staff</option>
+            <option value="laborers">Laborers</option>
+            <option value="low-skill_laborers">Low-skill Laborers</option>
+            <option value="managers">Managers</option>
+            <option value="medicine_staff">Medicine Staff</option>
+            <option value="private_service_staff">Private Service Staff</option>
+            <option value="realty_agents">Realty Agents</option>
+            <option value="sales_staff">Sales Staff</option>
+            <option value="secretaries">Secretaries</option>
+            <option value="security_staff">Security Staff</option>
+            <option value="waiters/barmen_staff">Waiters/Barmen Staff</option>
+            <option value="no_job">No Job</option>
+        </select><br><br>
+
+        <label for="employed_date">Employed Date:</label>
+        <input type="date" id="employed_date" name="employed_date" required><br><br>
+
+        <label for="total_income">Total Income:</label>
+        <input type="number" id="total_income" name="total_income" required><br><br>
+
+        <label for="income_type">Income Type:</label>
+        <select id="income_type" name="income_type">
+            <option value="commercial_associate">Commercial Associate</option>
+            <option value="pensioner">Pensioner</option>
+            <option value="state_servant">State servant</option>
+            <option value="Student">Student</option>
+            <option value="Working">Working</option>
+        </select><br><br>
+
+        <label for="own_car">Own Car:</label>
+        <select id="own_car" name="own_car" required>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+        </select><br><br>
+
+        <label for="own_realty">Own Realty:</label>
+        <select id="own_realty" name="own_realty" required>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+        </select><br><br>
+
+        <button type="submit">Submit Application</button>
+    </form>
+</body>
+
+</html>

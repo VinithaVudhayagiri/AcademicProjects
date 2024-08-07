@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Home</title>
+    <style>
+        body {
+            background-image: url('/static/images/background.jpg');
+            background-size: cover;
+            color: #2d0909;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        #logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 10px 0 20px 20px;
+        }
+
+        #logo img {
+            height: 50px;
+            margin-right: 10px;
+        }
+
+        #logo h2 {
+            margin: 0;
+            font-size: 32px;
+            text-align: center;
+            color: #1755e7;
+        }
+
+        .option {
+            margin: 20px;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #0B3D91;
+            box-shadow: 0 0 10px rgba(17, 212, 33, 0.3);
+            display: inline-block;
+            width: 30%;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .option:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 10px rgba(80, 30, 156, 0.5);
+        }
+
+        .options {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-top: 100px;
+        }
+
+        select {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            font-size: 16px;
+            background-color: skyblue;
+            color: #333;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        select:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        /* New styles */
+        .option button {
+            font-size: 24px;
+            font-weight: bold;
+            color: #c3073f;
+            background-color: #f9a3b7;
+            border: none;
+            border-radius: 5px;
+            padding: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .option button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="logo">
+        <img src="/static/images/logo.png">
+        <h2>Drug Data Metrics</h2>
+    </div>
+    <form action="{{ url_for('choose_option') }}" method="post">
+        <label for="table">Choose a table:</label>
+        <select name="table" id="table">
+            {% for option in tables %}
+            <option value="{{ option }}">{{ option }}</option>
+            {% endfor %}
+        </select>
+        <div class="options">
+            <div class="option">
+                <button type="submit" name="option" value="insert">Insert Data</button>
+            </div>
+            <div class="option">
+                <button type="submit" name="option" value="update">Update Data</button>
+            </div>
+            <div class="option">
+                <button type="submit" name="option" value="view">View Data</button>
+            </div>
+            <div class="option">
+                <button type="submit" name="option" value="delete">Delete Data</button>
+            </div>
+        </div>
+    </form>
+</body>
+
+</html>
